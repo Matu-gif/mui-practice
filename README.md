@@ -18,3 +18,5 @@ npm run build
 ```
 
 ビルド成果物の `dist` は、`main` ブランチへの送信後に GitHub Actions から GitHub Pages へ公開します。進捗は [tasks.md](tasks.md) に記録します。
+
+公開ページ：[MUI 管理アプリ演習](https://matu-gif.github.io/mui-practice/)

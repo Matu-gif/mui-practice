@@ -32,4 +32,4 @@
 
 ## 今の段階
 
-03-2 のローカルアプリは作成済みで、ビルド・lint・ブラウザ表示を確認済み。公開リポジトリ `Matu-gif/mui-practice` は作成し、ローカル Git の接続先に設定済み。GitHub への送信と GitHub Pages 公開は未完了。現在地の詳細は `tasks.md` を確認する。
+03-2 のローカルアプリは作成済みで、ビルド・lint・ブラウザ表示を確認済み。公開リポジトリ `Matu-gif/mui-practice` の `main` にソースを送信済み。GitHub Pages は GitHub Actions で公開でき、PC でも確認済み。スマートフォンでの最終確認は学生が行う。現在地の詳細は `tasks.md` を確認する。

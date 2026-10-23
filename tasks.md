@@ -28,12 +28,12 @@
 - [x] `src/index.css` を設定し、Tailwind CSS を読み込む。
 - [x] `src/App.tsx` の青い背景・白い「こんにちは」をブラウザで確認する（Chrome の表示を確認済み）。
 - [x] `npm run build` と `npm run lint` が成功することを確認する。
-- [ ] VS Code のソース管理画面で変更をコミットし、GitHub に送信する。
-- [ ] GitHub 側にファイルと `/mui-practice/` の設定が反映されたことを確認する。
-- [ ] GitHub Pages の Source を GitHub Actions に設定する。
+- [x] Git で変更をコミットし、ユーザーの指示に従って CLI から GitHub の `main` に送信する。
+- [x] GitHub 側に `src`・`package.json`・`vite.config.ts` と `/mui-practice/` の設定が反映されたことを確認する。
+- [x] GitHub Pages の Source を GitHub Actions（`build_type: workflow`）に設定して確認する。
 - [x] Vite をビルドし `dist` を公開する GitHub Actions workflow ファイルを作成する（GitHub 上での実行は未確認）。
-- [ ] Actions の実行成功を確認し、PC で公開ページを確認する。
-- [ ] QR コードでスマートフォンから公開ページを確認する。
+- [x] Actions のビルドと公開ジョブが成功し、PC の Chrome で公開ページの青い背景と白い「こんにちは」を確認する。
+- [ ] QR コードでスマートフォンから公開ページを確認する（`../mui-practice-QR.png` を作成済み。学生による確認待ち）。
 - [ ] 作成から公開までの流れを振り返る。
 
 ## 2. 03-3：管理アプリの設計と準備
@@ -87,7 +87,8 @@
 ## 現在の状況
 
 - ローカルの土台と公開用 workflow ファイルは作成済み。
-- GitHub CLI の認証は `Matu-gif` で確認済み。`Matu-gif/mui-practice` は公開設定で作成済み。ローカル Git の `origin` への接続も完了。コミット・送信・GitHub Pages 公開は未完了。
+- GitHub CLI の認証は `Matu-gif` で確認済み。`Matu-gif/mui-practice` は公開設定で作成済み。ローカル Git の `origin` へ接続し、初回コミット `756c898` を `main` に送信済み。GitHub Pages の公開元は GitHub Actions。再実行した workflow は成功し、PC で公開画面を確認済み。
+- 公開URL: https://matu-gif.github.io/mui-practice/ 。スマートフォン用QRコードはローカルの親フォルダーに作成済み。最終確認は学生が行う。
 - 学生の了承を得て、`README.md` を日本語に変更し、`AGENTS.md`・`tasks.md` をリポジトリ内に移した。親フォルダーの同名ファイルはリポジトリ内の原本を参照する。
 - GitHub Pages の利用条件に合わせ、学生の指示でリポジトリを公開設定へ変更済み。
 - ローカル画面表示は確認済み。`vite.config.ts` の設定変更後に HTTP 200、Chrome で青い背景と白い「こんにちは」を確認した。開発サーバーは停止済み。
