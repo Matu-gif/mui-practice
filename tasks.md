@@ -137,3 +137,13 @@
 - [ ] 今日の作業と学びをまとめ、先生に報告する。
 
 当日の進捗：2/4項目、50%。課題全体の割合とは別に数える。
+
+## 2026-11-27：タイトル編集（項目33）
+
+- [x] 文書PR [#1](https://github.com/Matu-gif/mui-practice/pull/1)で、タイトルのみの編集要件・設計を記録してマージした。
+- [x] 前回までの実装をPR [#2](https://github.com/Matu-gif/mui-practice/pull/2)でマージし、Actionsのbuild・deploy成功を確認した。本人がローカル開発サーバーの起動を確認した。
+- [x] `src/App.tsx` に各行の編集ボタン、現タイトル入りダイアログ、IDで対象のタイトルだけを更新する処理を実装した。`npm run build`・`npm run lint`・`git diff --check`は成功。
+- [ ] 本人がコードを読み、編集の保存で対象だけ変わり、ほかの作品・視聴状況が変わらないことをブラウザで確認する。
+- [ ] 本人がキャンセル・Esc・背景クリックで変更されないこと、再度開くと現在のタイトルに戻ること、空欄・空白だけでは保存できないことを確認する。
+
+変更箇所は `src/App.tsx` の編集用state、`closeEditDialog`・`saveEditedAnime`、各行の「編集」、編集ダイアログ。MUIは既存の `Button`・`Dialog`・`DialogTitle`・`DialogContent`・`DialogActions`・`TextField` を使い、確認済み種類数は11/20のまま。作品はReactのstateのみで、再読み込みすると消える。ローカルの差分・読む順番は `../実装ログ/2026-11-27_タイトル編集.md` を参照。11月20日の授業目標の進捗とは別に扱う。
