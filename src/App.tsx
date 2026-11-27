@@ -26,6 +26,8 @@ function App() {
   const [title, setTitle] = useState('')
   const [animeList, setAnimeList] = useState<Anime[]>([])
   const [animeToDelete, setAnimeToDelete] = useState<Anime | null>(null)
+  const [animeToEdit, setAnimeToEdit] = useState<Anime | null>(null)
+  const [editedTitle, setEditedTitle] = useState('')
 
   function addAnime() {
     const trimmedTitle = title.trim()
@@ -45,6 +47,23 @@ function App() {
       current.filter((item) => item.id !== animeToDelete.id),
     )
     setAnimeToDelete(null)
+  }
+
+  function closeEditDialog() {
+    setAnimeToEdit(null)
+    setEditedTitle('')
+  }
+
+  function saveEditedAnime() {
+    const trimmedTitle = editedTitle.trim()
+    if (!animeToEdit || !trimmedTitle) return
+
+    setAnimeList((current) =>
+      current.map((item) =>
+        item.id === animeToEdit.id ? { ...item, title: trimmedTitle } : item,
+      ),
+    )
+    closeEditDialog()
   }
 
   return (
@@ -113,6 +132,14 @@ function App() {
                         <MenuItem value="completed">完了</MenuItem>
                       </Select>
                     </FormControl>
+                    <Button
+                      onClick={() => {
+                        setAnimeToEdit(anime)
+                        setEditedTitle(anime.title)
+                      }}
+                    >
+                      編集
+                    </Button>
                     <Button color="error" onClick={() => setAnimeToDelete(anime)}>
                       削除
                     </Button>
@@ -123,6 +150,45 @@ function App() {
           </CardContent>
         </Card>
       </div>
+      <Dialog
+        open={animeToEdit !== null}
+        onClose={closeEditDialog}
+        aria-labelledby="edit-anime-title"
+        fullWidth
+        maxWidth="sm"
+      >
+        <DialogTitle id="edit-anime-title">作品タイトルの編集</DialogTitle>
+        <DialogContent>
+          <form
+            id="edit-anime-form"
+            onSubmit={(event) => {
+              event.preventDefault()
+              saveEditedAnime()
+            }}
+          >
+            <TextField
+              autoFocus
+              fullWidth
+              margin="dense"
+              label="アニメタイトル"
+              value={editedTitle}
+              onChange={(event) => setEditedTitle(event.target.value)}
+              helperText="空欄・空白だけでは保存できません。"
+            />
+          </form>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeEditDialog}>キャンセル</Button>
+          <Button
+            type="submit"
+            form="edit-anime-form"
+            variant="contained"
+            disabled={!editedTitle.trim()}
+          >
+            保存
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Dialog
         open={animeToDelete !== null}
         onClose={() => setAnimeToDelete(null)}
